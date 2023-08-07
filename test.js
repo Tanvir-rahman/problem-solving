@@ -15,4 +15,8 @@ function maxProfit(prices) {
 }
 
 prices = [7, 1, 5, 3, 6, 4]
-console.log(maxProfit(prices))
+console.log(`Input Array: ${prices}`)
+console.log(`Max Profit: ${maxProfit(prices)}`)
+
+console.log("Time Complexity: O(n)")
+console.log("Space Complexity: O(1)")
