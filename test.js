@@ -1,22 +1,26 @@
-function maxProfit(prices) {
-  if (!prices || prices.length === 0) {
-    return 0;
+function isValidParentheses(s) {
+  const map = {
+    '(': ')',
+    '[': ']',
+    '{': '}'
   }
 
-  let minPrice = prices[0];
-  let maxProfit = 0;
+  const stack = []
 
-  for (let i = 0; i < prices.length; i++) {
-    minPrice = Math.min(minPrice, prices[i]);
-    maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i]
+    if (map[c]) {
+      stack.push(map[c])
+    } else if (c !== stack.pop()) {
+      return false
+    }
   }
-
-  return Math.max(maxProfit, 0);
+  if (stack.length > 0) {
+    return false
+  } else {
+    return true
+  }
 }
 
-prices = [7, 1, 5, 3, 6, 4]
-console.log(`Input Array: ${prices}`)
-console.log(`Max Profit: ${maxProfit(prices)}`)
-
-console.log("Time Complexity: O(n)")
-console.log("Space Complexity: O(1)")
+console.log('Is Valid parentheses:', isValidParentheses('(){[]}'));
+console.log('Time and Space Complexity: O(n)');
