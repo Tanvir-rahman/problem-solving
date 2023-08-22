@@ -1,26 +1,13 @@
-function isValidParentheses(s) {
-  const map = {
-    '(': ')',
-    '[': ']',
-    '{': '}'
-  }
-
-  const stack = []
-
-  for (let i = 0; i < s.length; i++) {
-    const c = s[i]
-    if (map[c]) {
-      stack.push(map[c])
-    } else if (c !== stack.pop()) {
-      return false
-    }
-  }
-  if (stack.length > 0) {
-    return false
+function recursiveMultiplication(a, b) {
+  if (b === 0) {
+    return 0;
   } else {
-    return true
+    return a + recursiveMultiplication(a, b - 1);
   }
 }
 
-console.log('Is Valid parentheses:', isValidParentheses('(){[]}'));
-console.log('Time and Space Complexity: O(n)');
+console.log(recursiveMultiplication(4, 5));
+console.log(recursiveMultiplication(3, 3));
+console.log(recursiveMultiplication(0, 2));
+console.log('Time Complexity: O(b)');
+console.log('Space Complexity: O(b)');
